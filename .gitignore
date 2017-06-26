@@ -1,0 +1,6 @@
+#Ignore
+Pods
+Podfile.lock
+*.xcbkptlist
+#Except
+!.
