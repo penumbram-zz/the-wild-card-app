@@ -42,6 +42,7 @@ class OverlayView : UIView {
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.backgroundColor = .white
+        imageView = UIImageView()
         self.addSubview(imageView)
     }
     
