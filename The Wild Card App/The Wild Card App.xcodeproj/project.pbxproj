@@ -9,12 +9,56 @@
 /* Begin PBXBuildFile section */
 		88D4F7018FFFBF0BA6279F96 /* Pods_The_Wild_Card_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9BC3186F1B952BDD46BC55 /* Pods_The_Wild_Card_App.framework */; };
 		B733166A1F0114510002A50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316691F0114510002A50E /* AppDelegate.swift */; };
-		B733166C1F0114510002A50E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733166B1F0114510002A50E /* ViewController.swift */; };
-		B733166F1F0114510002A50E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B733166D1F0114510002A50E /* Main.storyboard */; };
 		B73316711F0114510002A50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73316701F0114510002A50E /* Assets.xcassets */; };
 		B73316741F0114510002A50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73316721F0114510002A50E /* LaunchScreen.storyboard */; };
 		B733167F1F0114510002A50E /* The_Wild_Card_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733167E1F0114510002A50E /* The_Wild_Card_AppTests.swift */; };
 		B733168A1F0114510002A50E /* The_Wild_Card_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316891F0114510002A50E /* The_Wild_Card_AppUITests.swift */; };
+		B73316A41F0118430002A50E /* RootProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733169A1F0118430002A50E /* RootProtocols.swift */; };
+		B73316A51F0118430002A50E /* RootProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733169A1F0118430002A50E /* RootProtocols.swift */; };
+		B73316A61F0118430002A50E /* RootProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733169A1F0118430002A50E /* RootProtocols.swift */; };
+		B73316A71F0118430002A50E /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733169B1F0118430002A50E /* RootRouter.swift */; };
+		B73316A81F0118430002A50E /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733169B1F0118430002A50E /* RootRouter.swift */; };
+		B73316A91F0118430002A50E /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733169B1F0118430002A50E /* RootRouter.swift */; };
+		B73316B71F0119550002A50E /* WildcardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B11F0119550002A50E /* WildcardsInteractor.swift */; };
+		B73316B81F0119550002A50E /* WildcardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B11F0119550002A50E /* WildcardsInteractor.swift */; };
+		B73316B91F0119550002A50E /* WildcardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B11F0119550002A50E /* WildcardsInteractor.swift */; };
+		B73316BA1F0119550002A50E /* WildcardsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B21F0119550002A50E /* WildcardsPresenter.swift */; };
+		B73316BB1F0119550002A50E /* WildcardsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B21F0119550002A50E /* WildcardsPresenter.swift */; };
+		B73316BC1F0119550002A50E /* WildcardsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B21F0119550002A50E /* WildcardsPresenter.swift */; };
+		B73316BD1F0119550002A50E /* WildcardsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B31F0119550002A50E /* WildcardsProtocols.swift */; };
+		B73316BE1F0119550002A50E /* WildcardsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B31F0119550002A50E /* WildcardsProtocols.swift */; };
+		B73316BF1F0119550002A50E /* WildcardsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B31F0119550002A50E /* WildcardsProtocols.swift */; };
+		B73316C01F0119550002A50E /* WildcardsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B41F0119550002A50E /* WildcardsRouter.swift */; };
+		B73316C11F0119550002A50E /* WildcardsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B41F0119550002A50E /* WildcardsRouter.swift */; };
+		B73316C21F0119550002A50E /* WildcardsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B41F0119550002A50E /* WildcardsRouter.swift */; };
+		B73316C31F0119550002A50E /* WildcardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B51F0119550002A50E /* WildcardsViewController.swift */; };
+		B73316C41F0119550002A50E /* WildcardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B51F0119550002A50E /* WildcardsViewController.swift */; };
+		B73316C51F0119550002A50E /* WildcardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316B51F0119550002A50E /* WildcardsViewController.swift */; };
+		B73316C61F0119550002A50E /* WildcardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B73316B61F0119550002A50E /* WildcardsViewController.xib */; };
+		B73316C71F0119550002A50E /* WildcardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B73316B61F0119550002A50E /* WildcardsViewController.xib */; };
+		B73316C81F0119550002A50E /* WildcardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B73316B61F0119550002A50E /* WildcardsViewController.xib */; };
+		B73316CA1F0131CE0002A50E /* WildcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316C91F0131CE0002A50E /* WildcardView.swift */; };
+		B73316CB1F0131CE0002A50E /* WildcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316C91F0131CE0002A50E /* WildcardView.swift */; };
+		B73316CC1F0131CE0002A50E /* WildcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316C91F0131CE0002A50E /* WildcardView.swift */; };
+		B73316CE1F01369D0002A50E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316CD1F01369D0002A50E /* OverlayView.swift */; };
+		B73316CF1F01369D0002A50E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316CD1F01369D0002A50E /* OverlayView.swift */; };
+		B73316D01F01369D0002A50E /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316CD1F01369D0002A50E /* OverlayView.swift */; };
+		B73316D21F023AA40002A50E /* WildcardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316D11F023AA40002A50E /* WildcardContainer.swift */; };
+		B73316D31F023AA40002A50E /* WildcardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316D11F023AA40002A50E /* WildcardContainer.swift */; };
+		B73316D41F023AA40002A50E /* WildcardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316D11F023AA40002A50E /* WildcardContainer.swift */; };
+		B73316D61F023C980002A50E /* WildcardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316D51F023C980002A50E /* WildcardEntity.swift */; };
+		B73316D71F023C980002A50E /* WildcardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316D51F023C980002A50E /* WildcardEntity.swift */; };
+		B73316D81F023C980002A50E /* WildcardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316D51F023C980002A50E /* WildcardEntity.swift */; };
+		B73316DB1F023E3A0002A50E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316DA1F023E3A0002A50E /* NetworkManager.swift */; };
+		B73316DC1F023E3A0002A50E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316DA1F023E3A0002A50E /* NetworkManager.swift */; };
+		B73316DD1F023E3A0002A50E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316DA1F023E3A0002A50E /* NetworkManager.swift */; };
+		B73316DF1F023E8E0002A50E /* FetchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316DE1F023E8E0002A50E /* FetchCommand.swift */; };
+		B73316E01F023E8E0002A50E /* FetchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316DE1F023E8E0002A50E /* FetchCommand.swift */; };
+		B73316E11F023E8E0002A50E /* FetchCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316DE1F023E8E0002A50E /* FetchCommand.swift */; };
+		B73316E31F023FDF0002A50E /* WildcardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316E21F023FDF0002A50E /* WildcardResponse.swift */; };
+		B73316E41F023FDF0002A50E /* WildcardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316E21F023FDF0002A50E /* WildcardResponse.swift */; };
+		B73316E51F023FDF0002A50E /* WildcardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316E21F023FDF0002A50E /* WildcardResponse.swift */; };
+		B7C333451F024BB000038D4B /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C333441F024BB000038D4B /* LoadingManager.swift */; };
 		D3891151CF8158100A33D701 /* Pods_The_Wild_Card_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAC7D8D7911A277C149AE6E /* Pods_The_Wild_Card_AppUITests.framework */; };
 		F3312549E379B84D101A0103 /* Pods_The_Wild_Card_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AD2DDD5DE731AE0CFD6125 /* Pods_The_Wild_Card_AppTests.framework */; };
 /* End PBXBuildFile section */
@@ -46,8 +90,6 @@
 		9FAC7D8D7911A277C149AE6E /* Pods_The_Wild_Card_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Wild_Card_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73316661F0114510002A50E /* The Wild Card App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Wild Card App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73316691F0114510002A50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B733166B1F0114510002A50E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B733166E1F0114510002A50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B73316701F0114510002A50E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B73316731F0114510002A50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B73316751F0114510002A50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +99,22 @@
 		B73316851F0114510002A50E /* The Wild Card AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Wild Card AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73316891F0114510002A50E /* The_Wild_Card_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_Wild_Card_AppUITests.swift; sourceTree = "<group>"; };
 		B733168B1F0114510002A50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B733169A1F0118430002A50E /* RootProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootProtocols.swift; sourceTree = "<group>"; };
+		B733169B1F0118430002A50E /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		B73316B11F0119550002A50E /* WildcardsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardsInteractor.swift; sourceTree = "<group>"; };
+		B73316B21F0119550002A50E /* WildcardsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardsPresenter.swift; sourceTree = "<group>"; };
+		B73316B31F0119550002A50E /* WildcardsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardsProtocols.swift; sourceTree = "<group>"; };
+		B73316B41F0119550002A50E /* WildcardsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardsRouter.swift; sourceTree = "<group>"; };
+		B73316B51F0119550002A50E /* WildcardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardsViewController.swift; sourceTree = "<group>"; };
+		B73316B61F0119550002A50E /* WildcardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WildcardsViewController.xib; sourceTree = "<group>"; };
+		B73316C91F0131CE0002A50E /* WildcardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardView.swift; sourceTree = "<group>"; };
+		B73316CD1F01369D0002A50E /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		B73316D11F023AA40002A50E /* WildcardContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardContainer.swift; sourceTree = "<group>"; };
+		B73316D51F023C980002A50E /* WildcardEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardEntity.swift; sourceTree = "<group>"; };
+		B73316DA1F023E3A0002A50E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B73316DE1F023E8E0002A50E /* FetchCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCommand.swift; sourceTree = "<group>"; };
+		B73316E21F023FDF0002A50E /* WildcardResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardResponse.swift; sourceTree = "<group>"; };
+		B7C333441F024BB000038D4B /* LoadingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingManager.swift; sourceTree = "<group>"; };
 		F468F9D1F7C16D37E78C93FF /* Pods-The Wild Card App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Wild Card App.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Wild Card App/Pods-The Wild Card App.release.xcconfig"; sourceTree = "<group>"; };
 		F72BF0D207D13606145B7627 /* Pods-The Wild Card AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Wild Card AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Wild Card AppTests/Pods-The Wild Card AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,11 +186,16 @@
 			isa = PBXGroup;
 			children = (
 				B73316691F0114510002A50E /* AppDelegate.swift */,
-				B733166B1F0114510002A50E /* ViewController.swift */,
-				B733166D1F0114510002A50E /* Main.storyboard */,
+				B73316971F0116790002A50E /* Root */,
+				B73316B01F0119300002A50E /* Wildcards */,
+				B73316D91F023E2C0002A50E /* Network */,
 				B73316701F0114510002A50E /* Assets.xcassets */,
 				B73316721F0114510002A50E /* LaunchScreen.storyboard */,
 				B73316751F0114510002A50E /* Info.plist */,
+				B73316D11F023AA40002A50E /* WildcardContainer.swift */,
+				B73316C91F0131CE0002A50E /* WildcardView.swift */,
+				B73316CD1F01369D0002A50E /* OverlayView.swift */,
+				B7C333441F024BB000038D4B /* LoadingManager.swift */,
 			);
 			path = "The Wild Card App";
 			sourceTree = "<group>";
@@ -153,6 +216,39 @@
 				B733168B1F0114510002A50E /* Info.plist */,
 			);
 			path = "The Wild Card AppUITests";
+			sourceTree = "<group>";
+		};
+		B73316971F0116790002A50E /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				B733169A1F0118430002A50E /* RootProtocols.swift */,
+				B733169B1F0118430002A50E /* RootRouter.swift */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		B73316B01F0119300002A50E /* Wildcards */ = {
+			isa = PBXGroup;
+			children = (
+				B73316D51F023C980002A50E /* WildcardEntity.swift */,
+				B73316B11F0119550002A50E /* WildcardsInteractor.swift */,
+				B73316B21F0119550002A50E /* WildcardsPresenter.swift */,
+				B73316B31F0119550002A50E /* WildcardsProtocols.swift */,
+				B73316B41F0119550002A50E /* WildcardsRouter.swift */,
+				B73316B51F0119550002A50E /* WildcardsViewController.swift */,
+				B73316B61F0119550002A50E /* WildcardsViewController.xib */,
+			);
+			name = Wildcards;
+			sourceTree = "<group>";
+		};
+		B73316D91F023E2C0002A50E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B73316DA1F023E3A0002A50E /* NetworkManager.swift */,
+				B73316E21F023FDF0002A50E /* WildcardResponse.swift */,
+				B73316DE1F023E8E0002A50E /* FetchCommand.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		CC372664AAE936BA17202F0E /* Frameworks */ = {
@@ -285,8 +381,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73316741F0114510002A50E /* LaunchScreen.storyboard in Resources */,
+				B73316C61F0119550002A50E /* WildcardsViewController.xib in Resources */,
 				B73316711F0114510002A50E /* Assets.xcassets in Resources */,
-				B733166F1F0114510002A50E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73316C71F0119550002A50E /* WildcardsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73316C81F0119550002A50E /* WildcardsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,8 +547,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B733166C1F0114510002A50E /* ViewController.swift in Sources */,
+				B73316B71F0119550002A50E /* WildcardsInteractor.swift in Sources */,
+				B73316DF1F023E8E0002A50E /* FetchCommand.swift in Sources */,
+				B73316BD1F0119550002A50E /* WildcardsProtocols.swift in Sources */,
+				B73316A71F0118430002A50E /* RootRouter.swift in Sources */,
+				B73316DB1F023E3A0002A50E /* NetworkManager.swift in Sources */,
 				B733166A1F0114510002A50E /* AppDelegate.swift in Sources */,
+				B73316C31F0119550002A50E /* WildcardsViewController.swift in Sources */,
+				B73316CA1F0131CE0002A50E /* WildcardView.swift in Sources */,
+				B7C333451F024BB000038D4B /* LoadingManager.swift in Sources */,
+				B73316D61F023C980002A50E /* WildcardEntity.swift in Sources */,
+				B73316D21F023AA40002A50E /* WildcardContainer.swift in Sources */,
+				B73316C01F0119550002A50E /* WildcardsRouter.swift in Sources */,
+				B73316BA1F0119550002A50E /* WildcardsPresenter.swift in Sources */,
+				B73316A41F0118430002A50E /* RootProtocols.swift in Sources */,
+				B73316CE1F01369D0002A50E /* OverlayView.swift in Sources */,
+				B73316E31F023FDF0002A50E /* WildcardResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +570,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73316B81F0119550002A50E /* WildcardsInteractor.swift in Sources */,
+				B73316E01F023E8E0002A50E /* FetchCommand.swift in Sources */,
+				B73316BE1F0119550002A50E /* WildcardsProtocols.swift in Sources */,
+				B73316A81F0118430002A50E /* RootRouter.swift in Sources */,
+				B73316DC1F023E3A0002A50E /* NetworkManager.swift in Sources */,
 				B733167F1F0114510002A50E /* The_Wild_Card_AppTests.swift in Sources */,
+				B73316C41F0119550002A50E /* WildcardsViewController.swift in Sources */,
+				B73316CB1F0131CE0002A50E /* WildcardView.swift in Sources */,
+				B73316D71F023C980002A50E /* WildcardEntity.swift in Sources */,
+				B73316D31F023AA40002A50E /* WildcardContainer.swift in Sources */,
+				B73316C11F0119550002A50E /* WildcardsRouter.swift in Sources */,
+				B73316BB1F0119550002A50E /* WildcardsPresenter.swift in Sources */,
+				B73316A51F0118430002A50E /* RootProtocols.swift in Sources */,
+				B73316CF1F01369D0002A50E /* OverlayView.swift in Sources */,
+				B73316E41F023FDF0002A50E /* WildcardResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +592,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73316B91F0119550002A50E /* WildcardsInteractor.swift in Sources */,
+				B73316E11F023E8E0002A50E /* FetchCommand.swift in Sources */,
+				B73316BF1F0119550002A50E /* WildcardsProtocols.swift in Sources */,
+				B73316A91F0118430002A50E /* RootRouter.swift in Sources */,
+				B73316DD1F023E3A0002A50E /* NetworkManager.swift in Sources */,
 				B733168A1F0114510002A50E /* The_Wild_Card_AppUITests.swift in Sources */,
+				B73316C51F0119550002A50E /* WildcardsViewController.swift in Sources */,
+				B73316CC1F0131CE0002A50E /* WildcardView.swift in Sources */,
+				B73316D81F023C980002A50E /* WildcardEntity.swift in Sources */,
+				B73316D41F023AA40002A50E /* WildcardContainer.swift in Sources */,
+				B73316C21F0119550002A50E /* WildcardsRouter.swift in Sources */,
+				B73316BC1F0119550002A50E /* WildcardsPresenter.swift in Sources */,
+				B73316A61F0118430002A50E /* RootProtocols.swift in Sources */,
+				B73316D01F01369D0002A50E /* OverlayView.swift in Sources */,
+				B73316E51F023FDF0002A50E /* WildcardResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,14 +626,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B733166D1F0114510002A50E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B733166E1F0114510002A50E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B73316721F0114510002A50E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
