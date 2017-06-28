@@ -23,7 +23,7 @@ class FetchCommand : Command {
     }
     
     func execute() {
-        NetworkManager.sharedInstance.request("http://www.mocky.io/v2/595208f30f00001c01a3d6fc", method: .get, parameters: nil).responseObject {(response: DataResponse<WildcardResponse>) in
+        NetworkManager.sharedInstance.request("http://www.mocky.io/v2/59535bea270000f300b2aa29", method: .get, parameters: nil).responseObject {(response: DataResponse<WildcardResponse>) in
             if let wildcardResponse = response.result.value, wildcardResponse.data != nil, wildcardResponse.data!.count > 0 {
                 self.completionHandler(wildcardResponse.data!)
             }
