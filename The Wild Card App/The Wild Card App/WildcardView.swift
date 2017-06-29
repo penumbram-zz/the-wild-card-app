@@ -22,7 +22,12 @@ protocol WildcardViewDelegate : class {
     func cardSwiped(_ card : WildcardView, direction: SwipeDirection)
 }
 
-let ACTION_MARGIN : CGFloat = 120.0
+let ACTION_MARGIN : CGFloat = 120.0 //%%% distance from center where the action applies. Higher = swipe further in order for the action to be called
+let SCALE_STRENGTH : CGFloat = 4.0 //%%% how quickly the card shrinks. Higher = slower shrinking
+let SCALE_MAX : CGFloat = 0.93 //%%% upper bar for how much the card shrinks. Higher = shrinks less
+let ROTATION_MAX : CGFloat = 1.0 //%%% the maximum rotation allowed in radians.  Higher = card can keep rotating longer
+let ROTATION_STRENGTH : CGFloat = 320.0 //%%% strength of rotation. Higher = weaker rotation
+let ROTATION_ANGLE = CGFloat.pi/8 //%%% Higher = stronger rotation angle
 
 class WildcardView: UIView {
     
@@ -55,90 +60,6 @@ class WildcardView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func dragging(_ gestureRecognizer : UIPanGestureRecognizer) {
-        xFromCenter = gestureRecognizer.translation(in: self.superview).x
-        yFromCenter = gestureRecognizer.translation(in: self.superview).y
-        xVelocity = gestureRecognizer.velocity(in: self.superview).x
-        
-        
-        
-        //swiping state
-        switch (gestureRecognizer.state) {
-            //swiping began
-        case .began:
-            self.originalPoint = self.center
-            self.movingFromBack = self.facingBack
-            break
-        //swiping continues
-        case .changed:
-            
-            let percent = (xFromCenter) * self.layer.affineTransform().a / self.frame.size.width
-
-            let x = abs(percent)
-            let scaleX = 1-(2*x);
-            var trans = CGAffineTransform(scaleX: scaleX, y: 1.0)
-            
-            print(scaleX)
-            
-            if xFromCenter > 0 { //going right
-                if self.movingFromBack {
-                    trans = CGAffineTransform(scaleX: -scaleX, y: 1.0)
-                    self.layer.setAffineTransform(trans)
-                    overlayView.alpha = 0.0
-                    
-                    if scaleX <= 0.0 && scaleX > -0.3 {
-                        self.facingBack = false
-                    } else if scaleX < -0.3 {
-                        gestureRecognizer.isEnabled = false
-                        self.afterSwipeAction(gestureRecognizer)
-                    } else {
-                        if scaleX >= 0.0 {
-                            self.facingBack = true
-                        }
-                        self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                    }
-                } else { //facing front
-                    self.layer.setAffineTransform(trans)
-                    if scaleX <= 0.0 && scaleX > -0.3 {
-                        self.facingBack = true
-                    } else if scaleX < -0.3 {
-                        gestureRecognizer.isEnabled = false
-                        self.afterSwipeAction(gestureRecognizer)
-                    } else {
-                        if scaleX >= 0.0 {
-                            self.facingBack = false
-                        }
-                        self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                    }
-                    self.updateOverlay(distance: xFromCenter)
-                }
-            } else {
-                self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                self.layer.setAffineTransform(.identity)
-                self.updateOverlay(distance: xFromCenter)
-            }
-            //print(scalexx)
-            
-            
-            break
-        case .ended:
-            self.afterSwipeAction(gestureRecognizer)
-            break
-        default:
-            break
-        }
-    }
-    
-    // updates with the correct overlay image
-    func updateOverlay(distance : CGFloat) {
-        if distance > 0 {
-            overlayView.mode = .right
-        } else {
-            overlayView.mode = .left
-        }
-        overlayView.alpha = CGFloat(min(fabsf(Float(distance))/200,Float(0.5)))
     }
     
     //MARK: Right - Left

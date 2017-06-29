@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		88D4F7018FFFBF0BA6279F96 /* Pods_The_Wild_Card_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9BC3186F1B952BDD46BC55 /* Pods_The_Wild_Card_App.framework */; };
 		B7227C1C1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */; };
+		B7227C1F1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */; };
 		B733166A1F0114510002A50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316691F0114510002A50E /* AppDelegate.swift */; };
 		B73316711F0114510002A50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73316701F0114510002A50E /* Assets.xcassets */; };
 		B73316741F0114510002A50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73316721F0114510002A50E /* LaunchScreen.storyboard */; };
@@ -90,6 +91,7 @@
 		9CB3548174120CBD800D819F /* Pods-The Wild Card App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Wild Card App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The Wild Card App/Pods-The Wild Card App.debug.xcconfig"; sourceTree = "<group>"; };
 		9FAC7D8D7911A277C149AE6E /* Pods_The_Wild_Card_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Wild_Card_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardView_ViewSetupProtocol.swift; sourceTree = "<group>"; };
+		B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardView_DraggingProtocol.swift; sourceTree = "<group>"; };
 		B73316661F0114510002A50E /* The Wild Card App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Wild Card App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73316691F0114510002A50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B73316701F0114510002A50E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +164,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B7227C1D1F04E06800B825F2 /* Wildcard */ = {
+			isa = PBXGroup;
+			children = (
+				B73316CD1F01369D0002A50E /* OverlayView.swift */,
+				B73316D11F023AA40002A50E /* WildcardContainer.swift */,
+				B73316C91F0131CE0002A50E /* WildcardView.swift */,
+				B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */,
+				B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */,
+			);
+			name = Wildcard;
+			sourceTree = "<group>";
+		};
 		B733165D1F0114510002A50E = {
 			isa = PBXGroup;
 			children = (
@@ -188,17 +202,13 @@
 			isa = PBXGroup;
 			children = (
 				B73316691F0114510002A50E /* AppDelegate.swift */,
+				B7C333441F024BB000038D4B /* LoadingManager.swift */,
 				B73316971F0116790002A50E /* Root */,
 				B73316B01F0119300002A50E /* Wildcards */,
 				B73316D91F023E2C0002A50E /* Network */,
 				B73316701F0114510002A50E /* Assets.xcassets */,
 				B73316721F0114510002A50E /* LaunchScreen.storyboard */,
 				B73316751F0114510002A50E /* Info.plist */,
-				B73316D11F023AA40002A50E /* WildcardContainer.swift */,
-				B73316C91F0131CE0002A50E /* WildcardView.swift */,
-				B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */,
-				B73316CD1F01369D0002A50E /* OverlayView.swift */,
-				B7C333441F024BB000038D4B /* LoadingManager.swift */,
 			);
 			path = "The Wild Card App";
 			sourceTree = "<group>";
@@ -240,6 +250,7 @@
 				B73316B41F0119550002A50E /* WildcardsRouter.swift */,
 				B73316B51F0119550002A50E /* WildcardsViewController.swift */,
 				B73316B61F0119550002A50E /* WildcardsViewController.xib */,
+				B7227C1D1F04E06800B825F2 /* Wildcard */,
 			);
 			name = Wildcards;
 			sourceTree = "<group>";
@@ -559,6 +570,7 @@
 				B733166A1F0114510002A50E /* AppDelegate.swift in Sources */,
 				B73316C31F0119550002A50E /* WildcardsViewController.swift in Sources */,
 				B73316CA1F0131CE0002A50E /* WildcardView.swift in Sources */,
+				B7227C1F1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */,
 				B7C333451F024BB000038D4B /* LoadingManager.swift in Sources */,
 				B73316D61F023C980002A50E /* WildcardEntity.swift in Sources */,
 				B73316D21F023AA40002A50E /* WildcardContainer.swift in Sources */,
