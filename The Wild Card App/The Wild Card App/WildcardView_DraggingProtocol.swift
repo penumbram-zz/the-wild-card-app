@@ -23,60 +23,38 @@ extension WildcardView : DraggingProtocol {
         //swiping began
         case .began:
             self.originalPoint = self.center
+            /*
+             * memorize the starting state,
+             * facingBack might change, movingfromBack stays the same as 
+             * long as the finger is on the screen
+            */
             self.movingFromBack = self.facingBack
             break
         //swiping continues
         case .changed:
             
-            let percent = (xFromCenter) * self.layer.affineTransform().a / self.frame.size.width
+            let percent = (xFromCenter) * self.layer.affineTransform().a / self.frame.size.width //percentage of the touch location over the total width of the card
             
-            
-            let x = abs(percent)
-            let scaleX = 1-(2*x);
-            var trans = CGAffineTransform(scaleX: scaleX, y: 1.0)
+            let x = abs(percent) //always positive
+            let scaleX = 1 - (2*x) //arbitrary scale value
+            var trans : CGAffineTransform
             
             if xFromCenter > 0 { //going right
-                if self.movingFromBack {
-                    trans = CGAffineTransform(scaleX: -scaleX, y: 1.0)
-                    self.layer.setAffineTransform(trans)
+                self.rotateCard(isBack: self.movingFromBack, scaleX: scaleX, gestureRecognizer: gestureRecognizer)
+                if self.movingFromBack {// facing back, no overlay image will be shown
                     overlayView.alpha = 0.0
-                    
-                    if scaleX <= 0.0 && scaleX > -0.3 {
-                        self.facingBack = false
-                    } else if scaleX < -0.3 {
-                        gestureRecognizer.isEnabled = false
-                        self.afterSwipeAction(gestureRecognizer)
-                    } else {
-                        if scaleX >= 0.0 {
-                            self.facingBack = true
-                        }
-                        self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                    }
-                } else { //facing front
-                    self.layer.setAffineTransform(trans)
-                    if scaleX <= 0.0 && scaleX > -0.3 {
-                        self.facingBack = true
-                    } else if scaleX < -0.3 {
-                        gestureRecognizer.isEnabled = false
-                        self.afterSwipeAction(gestureRecognizer)
-                    } else {
-                        if scaleX >= 0.0 {
-                            self.facingBack = false
-                        }
-                        self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                    }
+                } else { //facing front, should update overlay image alpha
                     self.updateOverlay(distance: xFromCenter)
                 }
-            } else {
-                self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                var trans = CGAffineTransform.identity
+            } else { // going left
+                self.updatePosition()
+                trans = CGAffineTransform.identity
                 if self.facingBack {
                     trans = trans.concatenating(CGAffineTransform(scaleX: -1.0, y: 1.0))
                 }
                 self.transform = trans
                 self.updateOverlay(distance: xFromCenter)
             }
-            
             break
         case .ended:
             self.afterSwipeAction(gestureRecognizer)
@@ -84,6 +62,26 @@ extension WildcardView : DraggingProtocol {
         default:
             break
         }
+    }
+    
+    func rotateCard(isBack : Bool, scaleX: CGFloat,gestureRecognizer : UIPanGestureRecognizer) {
+        self.layer.setAffineTransform(CGAffineTransform(scaleX: isBack ? -scaleX : scaleX, y: 1.0))
+        
+        if scaleX <= 0.0 && scaleX > -0.3 {
+            self.facingBack = !isBack
+        } else if scaleX < -0.3 {
+            gestureRecognizer.isEnabled = false
+            self.afterSwipeAction(gestureRecognizer)
+        } else {
+            if scaleX >= 0.0 {
+                self.facingBack = isBack
+            }
+            self.updatePosition()
+        }
+    }
+    
+    func updatePosition() {
+        self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
     }
     
     // updates with the correct overlay image
