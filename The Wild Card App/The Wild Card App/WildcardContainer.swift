@@ -52,6 +52,7 @@ class WildcardContainer: UIView, WildcardViewDelegate {
                     self.insertNewCardBelow(index: i)
                 } else {
                     self.addSubview(loadedCards[i])
+                    loadedCards[0].panGestureRecognizer.isEnabled = true //always enable first card
                 }
                 cardsLoadedIndex = cardsLoadedIndex + 1 // increment the index
             }
@@ -70,6 +71,7 @@ class WildcardContainer: UIView, WildcardViewDelegate {
         
         wildcardView.information.text = cardsData[index].name //TODO: Custimize card more and more
         wildcardView.delegate = self;
+        wildcardView.panGestureRecognizer.isEnabled = false
         return wildcardView;
     }
     
@@ -102,9 +104,11 @@ class WildcardContainer: UIView, WildcardViewDelegate {
             for card in self.loadedCards {
                 card.frame.origin.y += CARD_TOP_MARGIN //Descend the cards at the top by top margin constant IF it's not the end of the card deck
             }
-            self.loadedCards.append(wildcards[cardsLoadedIndex])
+            let wildCard = wildcards[cardsLoadedIndex]
+            self.loadedCards.append(wildCard)
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertNewCardBelow(index: MAX_VISIBLE_CARDS-1)
+            self.loadedCards[0].panGestureRecognizer.isEnabled = true // enable the  gesture recognizer for the top card
         }
     }
     
