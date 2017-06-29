@@ -25,8 +25,13 @@ extension WildcardView : SwipingProtocol {
         } else { // reset the card
             UIView.animate(withDuration: 0.3, animations:{
                 self.center = self.originalPoint
-                self.transform = CGAffineTransform(rotationAngle: 0)
+                var trans = CGAffineTransform(rotationAngle: 0)
+                if self.facingBack {
+                    trans = trans.concatenating(CGAffineTransform(scaleX: -1.0, y: 1.0))
+                }
+                self.transform = trans
                 self.overlayView.alpha = 0
+                gestureRecognizer.isEnabled = true
             })
         }
     }

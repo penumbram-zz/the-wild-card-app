@@ -10,6 +10,9 @@ import UIKit
 
 extension WildcardView : DraggingProtocol {
     
+    
+    
+
     func dragging(_ gestureRecognizer : UIPanGestureRecognizer) {
         xFromCenter = gestureRecognizer.translation(in: self.superview).x
         yFromCenter = gestureRecognizer.translation(in: self.superview).y
@@ -25,31 +28,12 @@ extension WildcardView : DraggingProtocol {
         //swiping continues
         case .changed:
             
-            //%%% dictates rotation (see ROTATION_MAX and ROTATION_STRENGTH for details)
-            let rotationStrength = min(xFromCenter / ROTATION_STRENGTH, ROTATION_MAX)
-            
-            //%%% degree change in radians
-            let rotationAngel = ROTATION_ANGLE * rotationStrength
-            
-            //%%% amount the height changes when you move the card up to a certain point
-            let scale = max(1.0 - CGFloat(fabsf(Float(rotationStrength))) / SCALE_STRENGTH, SCALE_MAX)
-            
-            //%%% rotate by certain amount
-            let transform = CGAffineTransform(rotationAngle: rotationAngel)
-            let scaledTransform = transform.scaledBy(x: scale, y: scale)
-            
-            //%%% move the object's center by center + gesture coordinate
-            
             let percent = (xFromCenter) * self.layer.affineTransform().a / self.frame.size.width
-            
-            let rotationPercent = percent
             
             
             let x = abs(percent)
             let scaleX = 1-(2*x);
             var trans = CGAffineTransform(scaleX: scaleX, y: 1.0)
-            
-            print(scaleX)
             
             if xFromCenter > 0 { //going right
                 if self.movingFromBack {
@@ -85,11 +69,13 @@ extension WildcardView : DraggingProtocol {
                 }
             } else {
                 self.center = CGPoint(x: self.originalPoint.x + xFromCenter, y: self.originalPoint.y + yFromCenter)
-                self.layer.setAffineTransform(.identity)
+                var trans = CGAffineTransform.identity
+                if self.facingBack {
+                    trans = trans.concatenating(CGAffineTransform(scaleX: -1.0, y: 1.0))
+                }
+                self.transform = trans
                 self.updateOverlay(distance: xFromCenter)
             }
-            //print(scalexx)
-            
             
             break
         case .ended:

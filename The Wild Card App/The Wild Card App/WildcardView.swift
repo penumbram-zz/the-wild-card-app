@@ -17,14 +17,16 @@ protocol WildcardViewDelegate : class {
     func cardSwiped(_ card : WildcardView, direction: SwipeDirection)
 }
 
-let ACTION_MARGIN : CGFloat = 120.0 //distance from center where the action is applied
-let SCALE_STRENGTH : CGFloat = 4.0 //shrinking speed
-let SCALE_MAX : CGFloat = 0.93 //self explanatory max scale
-let ROTATION_MAX : CGFloat = 1.0 //max rotation
-let ROTATION_STRENGTH : CGFloat = 320.0 // rotation duration handle
-let ROTATION_ANGLE = CGFloat.pi/8 // rotation angle handle
+
 
 class WildcardView: UIView {
+    
+    let ACTION_MARGIN : CGFloat //distance from center where the action is applied
+    let SCALE_STRENGTH : CGFloat = 4.0 //shrinking speed
+    let SCALE_MAX : CGFloat = 0.93 //self explanatory max scale
+    let ROTATION_MAX : CGFloat = 1.0 //max rotation
+    let ROTATION_STRENGTH : CGFloat = 320.0 // rotation duration handle
+    let ROTATION_ANGLE = CGFloat.pi/8 // rotation angle handle
     
     weak var frontView : UIView!
     weak var backView : UIView!
@@ -48,9 +50,11 @@ class WildcardView: UIView {
     var xVelocity : CGFloat!
     
     override init(frame: CGRect) {
+        ACTION_MARGIN = frame.size.width/2
         super.init(frame: frame)
         
         self.setupView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
