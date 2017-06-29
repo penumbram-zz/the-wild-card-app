@@ -19,15 +19,14 @@ class WildcardContainer: UIView, WildcardViewDelegate {
         }
     }
     
-    var wildcards : [WildcardView]!
     var cardsLoadedIndex : Int!
     var loadedCards : [WildcardView]!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadedCards = []
-        wildcards = []
         cardsLoadedIndex = 0
+        self.CARD_FRAME = CGRect(x: (self.frame.size.width - CARD_WIDTH)/2, y: (self.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT)
     }
     
     
@@ -35,6 +34,7 @@ class WildcardContainer: UIView, WildcardViewDelegate {
     let CARD_HEIGHT : CGFloat = 386.0 // Height constant for a wildcard
     let CARD_WIDTH : CGFloat = 290.0 // Width constant for a wildcard
     let CARD_TOP_MARGIN : CGFloat = 20.0
+    var CARD_FRAME : CGRect!
     
     func loadCards() {
         if cardsData.count > 0 {
@@ -42,10 +42,8 @@ class WildcardContainer: UIView, WildcardViewDelegate {
             // If the the cardsData count is greated than MAX_VISIBLE_CARDS, it would lead to an array out of bounds exception without this check
             
             for i in 0..<cardsData.count {
-                let newCard = self.createDraggableViewWithDataAt(index: i) //create a new card
-                wildcards.append(newCard) //add it to all cards
-                
                 if i < numLoadedCardsCap {
+                    let newCard = self.createDraggableViewWithDataAt(index: i) //create a new card
                     loadedCards.append(newCard) //add it to loaded cards (max 3)
                 }
             }
@@ -71,18 +69,7 @@ class WildcardContainer: UIView, WildcardViewDelegate {
     // Creates a new view for a new card
     func createDraggableViewWithDataAt(index : Int) -> WildcardView
     {
-        let wildcardView = WildcardView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2, y: (self.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT))
-        
-        let item = cardsData[index]
-        wildcardView.labelName.text = item.name
-        wildcardView.labelAge.text = "Age: \(item.age!)"
-        wildcardView.labelCity.text = "City: \(item.city!)"
-        wildcardView.labelChildren.text = "Wishes Children: " + (item.wishesChildren! ? "YES" : "NO")
-        wildcardView.labelSmoking.text = "Smoker: " + (item.isSmoker! ? "YES" : "NO")
-        wildcardView.labelProfession.text = "Profession: \(item.profession!)"
-        
-        
-        wildcardView.ivProfile.sd_setImage(with: URL(string: item.profilePictureUrl!), placeholderImage: UIImage(named:"profile_placeholder"), options: SDWebImageOptions.cacheMemoryOnly, completed: nil)
+        let wildcardView = WildcardView(frame: CARD_FRAME, entity: cardsData[index])
 
         wildcardView.delegate = self;
         wildcardView.panGestureRecognizer.isEnabled = false
@@ -105,29 +92,46 @@ class WildcardContainer: UIView, WildcardViewDelegate {
         //make the correct/wrong overlay all visible
         UIView.animate(withDuration: 0.2, animations: {
             wildcardView.overlayView.alpha = 1.0
-        })
+        }) { finished in
+            wildcardView.overlayView.alpha = 0.0
+        }
         
         self.cardSwiped(card)
     }
     
     func cardSwiped(_ card : WildcardView) {
         //TODO: reuse a card view here
-        self.loadedCards.remove(at: 0) //remove latest card
+        card.transform = .identity
+        card.layer.removeAllAnimations()
+        
+        card.panGestureRecognizer.isEnabled = false
+        
+        let removedCard = self.loadedCards.remove(at: 0) //remove latest card
         var remainingCards : Int
-        if cardsLoadedIndex < wildcards.count { // if we haven't reached the end of all cards, put another into the loaded cards
-            remainingCards = self.wildcards.count + MAX_VISIBLE_CARDS - cardsLoadedIndex - 1
+        if cardsLoadedIndex < cardsData.count { // if we haven't reached the end of all cards, put another into the loaded cards
+            remainingCards = self.cardsData.count + MAX_VISIBLE_CARDS - cardsLoadedIndex - 1
+            
+            removedCard.fillCard(item: cardsData[cardsLoadedIndex])
+            self.loadedCards.append(removedCard)
             for card in self.loadedCards {
                 card.frame.origin.y += CARD_TOP_MARGIN //Descend the cards at the top by top margin constant IF it's not the end of the card deck
             }
-            let wildCard = wildcards[cardsLoadedIndex]
-            self.loadedCards.append(wildCard)
+
+            
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertNewCardBelow(index: MAX_VISIBLE_CARDS-1)
         } else {
+            card.removeFromSuperview()
             remainingCards = loadedCards.count
         }
+        
+        card.frame = self.CARD_FRAME
+        card.frame.origin.y -= CARD_TOP_MARGIN*2
+        card.facingBack = false
+        
         if self.loadedCards.count > 0 { self.loadedCards[0].panGestureRecognizer.isEnabled = true } // enable the  gesture recognizer for the top card
         self.cardCountDelegate?.updateCardCount(val: remainingCards) //Update count
+        
     }
     
 }

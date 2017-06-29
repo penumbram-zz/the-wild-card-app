@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 enum SwipeDirection {
     case left
@@ -56,12 +57,24 @@ class WildcardView: UIView, ViewSetupProtocol {
     var yFromCenter : CGFloat!
     var xVelocity : CGFloat!
     
-    override init(frame: CGRect) {
+    
+    init(frame: CGRect, entity: WildcardEntity) {
         ACTION_MARGIN = frame.size.width/2
         super.init(frame: frame)
+        self.setupView() //setup views
+        self.fillCard(item: entity) //fill the data
+    }
+    
+    func fillCard(item: WildcardEntity) {
+        self.labelName.text = item.name
+        self.labelAge.text = "Age: \(item.age!)"
+        self.labelCity.text = "City: \(item.city!)"
+        self.labelChildren.text = "Wishes Children: " + (item.wishesChildren! ? "YES" : "NO")
+        self.labelSmoking.text = "Smoker: " + (item.isSmoker! ? "YES" : "NO")
+        self.labelProfession.text = "Profession: \(item.profession!)"
         
-        self.setupView()
         
+        self.ivProfile.sd_setImage(with: URL(string: item.profilePictureUrl!), placeholderImage: UIImage(named:"profile_placeholder"), options: SDWebImageOptions.cacheMemoryOnly, completed: nil)
     }
     
     func setupView() {
