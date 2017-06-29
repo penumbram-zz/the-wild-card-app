@@ -10,6 +10,8 @@
 		88D4F7018FFFBF0BA6279F96 /* Pods_The_Wild_Card_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9BC3186F1B952BDD46BC55 /* Pods_The_Wild_Card_App.framework */; };
 		B7227C1C1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */; };
 		B7227C1F1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */; };
+		B7227C211F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C201F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift */; };
+		B7227C231F04E70800B825F2 /* WildcardViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C221F04E70800B825F2 /* WildcardViewProtocols.swift */; };
 		B733166A1F0114510002A50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316691F0114510002A50E /* AppDelegate.swift */; };
 		B73316711F0114510002A50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73316701F0114510002A50E /* Assets.xcassets */; };
 		B73316741F0114510002A50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73316721F0114510002A50E /* LaunchScreen.storyboard */; };
@@ -92,6 +94,8 @@
 		9FAC7D8D7911A277C149AE6E /* Pods_The_Wild_Card_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Wild_Card_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardView_ViewSetupProtocol.swift; sourceTree = "<group>"; };
 		B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardView_DraggingProtocol.swift; sourceTree = "<group>"; };
+		B7227C201F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardView_SwipingProtocol.swift; sourceTree = "<group>"; };
+		B7227C221F04E70800B825F2 /* WildcardViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WildcardViewProtocols.swift; sourceTree = "<group>"; };
 		B73316661F0114510002A50E /* The Wild Card App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Wild Card App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73316691F0114510002A50E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B73316701F0114510002A50E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 				B73316C91F0131CE0002A50E /* WildcardView.swift */,
 				B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */,
 				B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */,
+				B7227C201F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift */,
+				B7227C221F04E70800B825F2 /* WildcardViewProtocols.swift */,
 			);
 			name = Wildcard;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7227C231F04E70800B825F2 /* WildcardViewProtocols.swift in Sources */,
 				B73316B71F0119550002A50E /* WildcardsInteractor.swift in Sources */,
 				B73316DF1F023E8E0002A50E /* FetchCommand.swift in Sources */,
 				B73316BD1F0119550002A50E /* WildcardsProtocols.swift in Sources */,
@@ -575,6 +582,7 @@
 				B73316D61F023C980002A50E /* WildcardEntity.swift in Sources */,
 				B73316D21F023AA40002A50E /* WildcardContainer.swift in Sources */,
 				B73316C01F0119550002A50E /* WildcardsRouter.swift in Sources */,
+				B7227C211F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift in Sources */,
 				B73316BA1F0119550002A50E /* WildcardsPresenter.swift in Sources */,
 				B73316A41F0118430002A50E /* RootProtocols.swift in Sources */,
 				B73316CE1F01369D0002A50E /* OverlayView.swift in Sources */,

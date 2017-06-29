@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol DraggingProtocol : class {
-    func dragging(_ gestureRecognizer : UIPanGestureRecognizer)
-}
-
 extension WildcardView : DraggingProtocol {
     
     func dragging(_ gestureRecognizer : UIPanGestureRecognizer) {
