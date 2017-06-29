@@ -8,20 +8,7 @@
 
 import UIKit
 
-extension WildcardView : ViewSetupProtocol {
-    
-    func setupView() {
-        self.layer.cornerRadius = 4.0
-        self.layer.shadowRadius = 3.0
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
-        self.backgroundColor = .white
-        
-        self.initFrontView()
-        self.initBackView()
-        self.initOverlayView()
-        self.addPanGestureRecognizer()
-    }
+extension WildcardView {
     
     func initFrontView() {
         let vFront = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height))
@@ -29,7 +16,13 @@ extension WildcardView : ViewSetupProtocol {
         self.addSubview(vFront)
         self.frontView = vFront
         
-        self.initInfoLabel()
+        self.initProfilePicture()
+        self.initNameLabel()
+        self.initAgeLabel()
+        self.initCityLabel()
+        self.initSmokingLabel()
+        self.initProfessionLabel()
+        self.initChildrenLabel()
     }
     
     func initBackView() {
@@ -56,18 +49,72 @@ extension WildcardView : ViewSetupProtocol {
 
 }
 
+/*
+ weak var labelAge : UILabel!
+ weak var labelCity : UILabel!
+ weak var labelProfession : UILabel!
+ weak var labelSmoking : UILabel!
+ weak var labelChildren : UILabel!
+*/
+
 
 extension WildcardView { //Front View
     
-    func initInfoLabel() {
-        let lblInformation = UILabel(frame: CGRect(x: 0, y: 50.0, width: self.frame.size.width ,height:100))
-        lblInformation.isOpaque = false
-        lblInformation.text = "no info given"
-        lblInformation.textAlignment = .center
-        lblInformation.textColor = .black
-        self.frontView.addSubview(lblInformation)
-        self.information = lblInformation
+    func initNameLabel() {
+        let lblName = UILabel(frame: CGRect(x: 0, y: 140.0, width: self.frame.size.width ,height:30))
+        lblName.textAlignment = .center
+        self.frontView.addSubview(lblName)
+        self.labelName = lblName
     }
+    
+    func initAgeLabel() {
+        let lblAge = UILabel(frame: CGRect(x: 0, y: 170.0, width: self.frame.size.width ,height:30))
+        lblAge.textAlignment = .center
+        self.frontView.addSubview(lblAge)
+        self.labelAge = lblAge
+    }
+    
+    func initCityLabel() {
+        let lbl = UILabel(frame: CGRect(x: 0, y: 200.0, width: self.frame.size.width ,height:30))
+        lbl.textAlignment = .center
+        self.frontView.addSubview(lbl)
+        self.labelCity = lbl
+    }
+    
+    func initProfessionLabel() {
+        let lbl = UILabel(frame: CGRect(x: 0, y: 230.0, width: self.frame.size.width ,height:30))
+        lbl.textAlignment = .center
+        self.frontView.addSubview(lbl)
+        self.labelProfession = lbl
+    }
+    
+    func initSmokingLabel() {
+        let lbl = UILabel(frame: CGRect(x: 0, y: 260.0, width: self.frame.size.width ,height:30))
+        lbl.textAlignment = .center
+        self.frontView.addSubview(lbl)
+        self.labelSmoking = lbl
+    }
+    
+    func initChildrenLabel() {
+        let lbl = UILabel(frame: CGRect(x: 0, y: 290.0, width: self.frame.size.width ,height:30))
+        lbl.textAlignment = .center
+        self.frontView.addSubview(lbl)
+        self.labelChildren = lbl
+    }
+    
+    func initProfilePicture() {
+        let ivProfile = UIImageView(frame: CGRect(x: 0.0, y: 50.0, width: 90.0 ,height:90.0))
+        ivProfile.layer.cornerRadius = ivProfile.frame.width/2.0
+        ivProfile.layer.masksToBounds = true
+        
+        ivProfile.center = CGPoint(x: self.frame.size.width/2, y: ivProfile.center.y)
+        self.frontView.addSubview(ivProfile)
+        self.ivProfile = ivProfile
+    }
+    
+}
+
+extension WildcardView { //Back View
     
     func initDummyLabel() {
         let lblDummy = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 200.0, height: 30.0))

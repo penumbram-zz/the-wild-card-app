@@ -49,7 +49,8 @@ class OverlayView : UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.frame = CGRect(x: 50,y: 50,width: 100,height: 100)
+        imageView.frame.size = CGSize(width: 90.0, height: 90.0)
+        imageView.center = CGPoint(x: self.superview!.frame.size.width/2 - imageView.frame.size.width/2, y: 50.0 + imageView.frame.size.height/2)
     }
     
 }

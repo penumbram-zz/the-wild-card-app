@@ -12,6 +12,14 @@
 		B7227C1F1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */; };
 		B7227C211F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C201F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift */; };
 		B7227C231F04E70800B825F2 /* WildcardViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C221F04E70800B825F2 /* WildcardViewProtocols.swift */; };
+		B7227C241F04F26400B825F2 /* WildcardViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C221F04E70800B825F2 /* WildcardViewProtocols.swift */; };
+		B7227C251F04F26400B825F2 /* WildcardViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C221F04E70800B825F2 /* WildcardViewProtocols.swift */; };
+		B7227C261F04F26700B825F2 /* WildcardView_SwipingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C201F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift */; };
+		B7227C271F04F26700B825F2 /* WildcardView_SwipingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C201F04E6B300B825F2 /* WildcardView_SwipingProtocol.swift */; };
+		B7227C281F04F26A00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */; };
+		B7227C291F04F26A00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */; };
+		B7227C2A1F04F26D00B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */; };
+		B7227C2B1F04F26D00B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */; };
 		B733166A1F0114510002A50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316691F0114510002A50E /* AppDelegate.swift */; };
 		B73316711F0114510002A50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73316701F0114510002A50E /* Assets.xcassets */; };
 		B73316741F0114510002A50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73316721F0114510002A50E /* LaunchScreen.storyboard */; };
@@ -594,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7227C241F04F26400B825F2 /* WildcardViewProtocols.swift in Sources */,
 				B73316B81F0119550002A50E /* WildcardsInteractor.swift in Sources */,
 				B73316E01F023E8E0002A50E /* FetchCommand.swift in Sources */,
 				B73316BE1F0119550002A50E /* WildcardsProtocols.swift in Sources */,
@@ -601,12 +610,15 @@
 				B73316DC1F023E3A0002A50E /* NetworkManager.swift in Sources */,
 				B733167F1F0114510002A50E /* The_Wild_Card_AppTests.swift in Sources */,
 				B73316C41F0119550002A50E /* WildcardsViewController.swift in Sources */,
+				B7227C261F04F26700B825F2 /* WildcardView_SwipingProtocol.swift in Sources */,
+				B7227C281F04F26A00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */,
 				B73316CB1F0131CE0002A50E /* WildcardView.swift in Sources */,
 				B73316D71F023C980002A50E /* WildcardEntity.swift in Sources */,
 				B73316D31F023AA40002A50E /* WildcardContainer.swift in Sources */,
 				B73316C11F0119550002A50E /* WildcardsRouter.swift in Sources */,
 				B73316BB1F0119550002A50E /* WildcardsPresenter.swift in Sources */,
 				B73316A51F0118430002A50E /* RootProtocols.swift in Sources */,
+				B7227C2A1F04F26D00B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */,
 				B73316CF1F01369D0002A50E /* OverlayView.swift in Sources */,
 				B73316E41F023FDF0002A50E /* WildcardResponse.swift in Sources */,
 			);
@@ -616,6 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7227C251F04F26400B825F2 /* WildcardViewProtocols.swift in Sources */,
 				B73316B91F0119550002A50E /* WildcardsInteractor.swift in Sources */,
 				B73316E11F023E8E0002A50E /* FetchCommand.swift in Sources */,
 				B73316BF1F0119550002A50E /* WildcardsProtocols.swift in Sources */,
@@ -623,12 +636,15 @@
 				B73316DD1F023E3A0002A50E /* NetworkManager.swift in Sources */,
 				B733168A1F0114510002A50E /* The_Wild_Card_AppUITests.swift in Sources */,
 				B73316C51F0119550002A50E /* WildcardsViewController.swift in Sources */,
+				B7227C271F04F26700B825F2 /* WildcardView_SwipingProtocol.swift in Sources */,
+				B7227C291F04F26A00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */,
 				B73316CC1F0131CE0002A50E /* WildcardView.swift in Sources */,
 				B73316D81F023C980002A50E /* WildcardEntity.swift in Sources */,
 				B73316D41F023AA40002A50E /* WildcardContainer.swift in Sources */,
 				B73316C21F0119550002A50E /* WildcardsRouter.swift in Sources */,
 				B73316BC1F0119550002A50E /* WildcardsPresenter.swift in Sources */,
 				B73316A61F0118430002A50E /* RootProtocols.swift in Sources */,
+				B7227C2B1F04F26D00B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */,
 				B73316D01F01369D0002A50E /* OverlayView.swift in Sources */,
 				B73316E51F023FDF0002A50E /* WildcardResponse.swift in Sources */,
 			);

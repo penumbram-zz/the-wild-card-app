@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WildcardContainer: UIView, WildcardViewDelegate {
     
@@ -69,7 +70,17 @@ class WildcardContainer: UIView, WildcardViewDelegate {
     {
         let wildcardView = WildcardView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2, y: (self.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT))
         
-        wildcardView.information.text = cardsData[index].name //TODO: Custimize card more and more
+        let item = cardsData[index]
+        wildcardView.labelName.text = item.name
+        wildcardView.labelAge.text = "Age: \(item.age!)"
+        wildcardView.labelCity.text = "City: \(item.city!)"
+        wildcardView.labelChildren.text = "Wishes Children: " + (item.wishesChildren! ? "YES" : "NO")
+        wildcardView.labelSmoking.text = "Smoker: " + (item.isSmoker! ? "YES" : "NO")
+        wildcardView.labelProfession.text = "Profession: \(item.profession!)"
+        
+        
+        wildcardView.ivProfile.sd_setImage(with: URL(string: item.profilePictureUrl!), placeholderImage: UIImage(named:"profile_placeholder"), options: SDWebImageOptions.cacheMemoryOnly, completed: nil)
+        //TODO: Custimize card more and more
         wildcardView.delegate = self;
         wildcardView.panGestureRecognizer.isEnabled = false
         return wildcardView;

@@ -19,7 +19,7 @@ protocol WildcardViewDelegate : class {
 
 
 
-class WildcardView: UIView {
+class WildcardView: UIView, ViewSetupProtocol {
     
     let ACTION_MARGIN : CGFloat //distance from center where the action is applied
     let SCALE_STRENGTH : CGFloat = 4.0 //shrinking speed
@@ -38,7 +38,14 @@ class WildcardView: UIView {
     }
     var movingFromBack = false
     
-    weak var information : UILabel!
+    weak var labelName : UILabel!
+    weak var ivProfile : UIImageView!
+    weak var labelAge : UILabel!
+    weak var labelCity : UILabel!
+    weak var labelProfession : UILabel!
+    weak var labelSmoking : UILabel!
+    weak var labelChildren : UILabel!
+    
     weak var delegate : WildcardViewDelegate!
     
     var panGestureRecognizer : UIPanGestureRecognizer!
@@ -55,6 +62,19 @@ class WildcardView: UIView {
         
         self.setupView()
         
+    }
+    
+    func setupView() {
+        self.layer.cornerRadius = 4.0
+        self.layer.shadowRadius = 3.0
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.backgroundColor = .white
+        
+        self.initFrontView()
+        self.initBackView()
+        self.initOverlayView()
+        self.addPanGestureRecognizer()
     }
     
     required init?(coder aDecoder: NSCoder) {
