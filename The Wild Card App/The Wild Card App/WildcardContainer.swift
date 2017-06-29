@@ -83,7 +83,7 @@ class WildcardContainer: UIView, WildcardViewDelegate {
         
         
         wildcardView.ivProfile.sd_setImage(with: URL(string: item.profilePictureUrl!), placeholderImage: UIImage(named:"profile_placeholder"), options: SDWebImageOptions.cacheMemoryOnly, completed: nil)
-        //TODO: Custimize card more and more
+
         wildcardView.delegate = self;
         wildcardView.panGestureRecognizer.isEnabled = false
         return wildcardView;
