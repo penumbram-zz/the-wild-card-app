@@ -14,10 +14,11 @@ class WildcardsViewController: UIViewController {
 
 	var presenter: WildcardsPresenterProtocol?
     @IBOutlet weak var wildcardContainerView: WildcardContainer!
-    
+    @IBOutlet weak var labelCardsLeft: UILabel!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        self.wildcardContainerView.cardCountDelegate = self //labelCardsLeft
         presenter?.viewLoaded()
     }
     
@@ -28,11 +29,18 @@ extension WildcardsViewController : WildcardsViewProtocol {
     
     func setWildcards(_ wildcards : [WildcardEntity]) {
         wildcardContainerView.cardsData = wildcards
+        self.updateCardCount(val: wildcards.count)
     }
     
     func showNoUsersAlert() {
         let alert = UIAlertController(title: "Error", message: "Error fetching users.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension WildcardsViewController : CardCountDelegate {
+    func updateCardCount(val : Int) {
+        self.labelCardsLeft.text = "Cards left: \(val)"
     }
 }

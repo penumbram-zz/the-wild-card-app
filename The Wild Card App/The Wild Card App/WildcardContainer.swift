@@ -11,11 +11,14 @@ import SDWebImage
 
 class WildcardContainer: UIView, WildcardViewDelegate {
     
+    weak var cardCountDelegate : CardCountDelegate?
+    
     var cardsData : [WildcardEntity]! {
         didSet {
             self.loadCards()
         }
     }
+    
     var wildcards : [WildcardView]!
     var cardsLoadedIndex : Int!
     var loadedCards : [WildcardView]!
@@ -110,8 +113,9 @@ class WildcardContainer: UIView, WildcardViewDelegate {
     func cardSwiped(_ card : WildcardView) {
         //TODO: reuse a card view here
         self.loadedCards.remove(at: 0) //remove latest card
-        
+        var remainingCards : Int
         if cardsLoadedIndex < wildcards.count { // if we haven't reached the end of all cards, put another into the loaded cards
+            remainingCards = self.wildcards.count + MAX_VISIBLE_CARDS - cardsLoadedIndex - 1
             for card in self.loadedCards {
                 card.frame.origin.y += CARD_TOP_MARGIN //Descend the cards at the top by top margin constant IF it's not the end of the card deck
             }
@@ -119,8 +123,11 @@ class WildcardContainer: UIView, WildcardViewDelegate {
             self.loadedCards.append(wildCard)
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertNewCardBelow(index: MAX_VISIBLE_CARDS-1)
-            self.loadedCards[0].panGestureRecognizer.isEnabled = true // enable the  gesture recognizer for the top card
+        } else {
+            remainingCards = loadedCards.count
         }
+        if self.loadedCards.count > 0 { self.loadedCards[0].panGestureRecognizer.isEnabled = true } // enable the  gesture recognizer for the top card
+        self.cardCountDelegate?.updateCardCount(val: remainingCards) //Update count
     }
     
 }

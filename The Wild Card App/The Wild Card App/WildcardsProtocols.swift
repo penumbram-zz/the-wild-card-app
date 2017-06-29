@@ -45,3 +45,7 @@ protocol WildcardsViewProtocol: class {
     func setWildcards(_ wildcards : [WildcardEntity])
     func showNoUsersAlert()
 }
+
+protocol CardCountDelegate : class {
+    func updateCardCount(val : Int)
+}
