@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+protocol ViewSetupProtocol : class {
+    func setupView()
+}
+
 enum SwipeDirection {
     case left
     case right
@@ -44,51 +49,12 @@ class WildcardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         
         self.setupView()
-        
-        let vFront = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height))
-        vFront.backgroundColor = .white
-        self.addSubview(vFront)
-        self.frontView = vFront
-        
-        let vBack = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height))
-        vBack.backgroundColor = .green
-        
-        self.addSubview(vBack)
-        self.backView = vBack
-        self.backView.isHidden = true
-        
-        self.backgroundColor = .white
-        
-        let lblInformation = UILabel(frame: CGRect(x: 0, y: 50.0, width: self.frame.size.width ,height:100))
-        lblInformation.isOpaque = false
-        lblInformation.text = "no info given"
-        lblInformation.textAlignment = .center
-        lblInformation.textColor = .black
-        
-        self.panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(WildcardView.dragging(_:)))
-        
-        self.addGestureRecognizer(panGestureRecognizer)
-        self.frontView.addSubview(lblInformation)
-        self.information = lblInformation
-        
-        let vOverlay = OverlayView(frame: CGRect(x: self.frame.size.width/2-100,y: 0.0, width: 100.0, height: 100.0))
-        vOverlay.alpha = 0
-        self.frontView.addSubview(vOverlay)
-        self.overlayView = vOverlay
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func setupView() {
-        self.layer.cornerRadius = 4.0
-        self.layer.shadowRadius = 3.0
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     func dragging(_ gestureRecognizer : UIPanGestureRecognizer) {
@@ -120,6 +86,8 @@ class WildcardView: UIView {
                 if self.movingFromBack {
                     trans = CGAffineTransform(scaleX: -scaleX, y: 1.0)
                     self.layer.setAffineTransform(trans)
+                    overlayView.alpha = 0.0
+                    
                     if scaleX <= 0.0 && scaleX > -0.3 {
                         self.facingBack = false
                     } else if scaleX < -0.3 {
