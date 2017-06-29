@@ -44,9 +44,7 @@ extension WildcardView : SwipingProtocol {
         UIView.animate(withDuration: 0.3, animations:{
             self.center = finishPoint
             self.transform = CGAffineTransform(rotationAngle: isRight ? 1 : -1)
-        }) {finished in
-            self.removeFromSuperview()
-        }
+        })
         
         delegate.cardSwiped(self, direction: direction)
     }
