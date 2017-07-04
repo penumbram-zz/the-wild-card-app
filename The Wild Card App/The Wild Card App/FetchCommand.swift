@@ -15,6 +15,8 @@ protocol Command {
     func execute()
 }
 
+let endpoint = "http://devrecruitmentapi-affinitasplaygroundstaticbucket-129egsam02uuk.s3-website-eu-west-1.amazonaws.com/"
+
 class FetchCommand : Command {
     var completionHandler: ([WildcardEntity]) -> Void
     
@@ -23,9 +25,9 @@ class FetchCommand : Command {
     }
     
     func execute() {
-        NetworkManager.sharedInstance.request("http://www.mocky.io/v2/59535bea270000f300b2aa29", method: .get, parameters: nil).responseObject {(response: DataResponse<WildcardResponse>) in
-            if let wildcardResponse = response.result.value, wildcardResponse.data != nil, wildcardResponse.data!.count > 0 {
-                self.completionHandler(wildcardResponse.data!)
+        NetworkManager.sharedInstance.request(endpoint, method: .get, parameters: nil).responseArray { (response: DataResponse<[WildcardEntity]>) in
+            if let wildcardResponse = response.result.value, wildcardResponse.count > 0 {
+                self.completionHandler(wildcardResponse)
             }
         }
     }

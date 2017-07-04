@@ -9,13 +9,17 @@
 import Foundation
 import ObjectMapper
 
-class WildcardResponse : Mappable {
+final class WildcardResponseList<WildcardEntity : Mappable> : Mappable {
     
-    required init?(map: Map) {}
+    var result : [WildcardEntity]?
     
-    var data : [WildcardEntity]?
+    required convenience init?(map: Map) {
+        self.init(map: map)
+    }
+    
+    
     func mapping(map: Map) {
-        data <- map["data"]
+        result <- map["result"]
     }
     
 }
