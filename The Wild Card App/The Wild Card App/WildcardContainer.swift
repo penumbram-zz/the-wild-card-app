@@ -22,8 +22,18 @@ class WildcardContainer: UIView, WildcardViewDelegate {
     var cardsLoadedIndex : Int!
     var loadedCards : [WildcardView]!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.initialize()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.initialize()
+    }
+    
+    func initialize() {
+        self.accessibilityLabel = "wildcard container view"
         loadedCards = []
         cardsLoadedIndex = 0
         self.CARD_FRAME = CGRect(x: (self.frame.size.width - CARD_WIDTH)/2, y: (self.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT)
@@ -54,7 +64,7 @@ class WildcardContainer: UIView, WildcardViewDelegate {
                     self.insertNewCardBelow(index: i)
                 } else {
                     self.addSubview(loadedCards[i])
-                    loadedCards[0].panGestureRecognizer.isEnabled = true //always enable first card
+                    self.enableTopCard() //always enable first card
                 }
                 cardsLoadedIndex = cardsLoadedIndex + 1 // increment the index
             }
@@ -83,28 +93,22 @@ class WildcardContainer: UIView, WildcardViewDelegate {
     //Called when the user swipes a card
     func cardSwiped(_ card : WildcardView, direction: SwipeDirection) {
         let wildcardView = loadedCards.first!
-        if direction == .right {
-            print("RIGHT SWIPE")
-        } else {
-            print("LEFT SWIPE")
-        }
-        
         //make the correct/wrong overlay all visible
         UIView.animate(withDuration: 0.2, animations: {
             wildcardView.overlayView.alpha = 1.0
         }) { finished in
             wildcardView.overlayView.alpha = 0.0
         }
-        
         self.cardSwiped(card)
     }
     
     func cardSwiped(_ card : WildcardView) {
-        //TODO: reuse a card view here
         card.transform = .identity
         card.layer.removeAllAnimations()
         
         card.panGestureRecognizer.isEnabled = false
+        
+        card.accessibilityLabel = "bottom card"
         
         let removedCard = self.loadedCards.remove(at: 0) //remove latest card
         var remainingCards : Int
@@ -129,9 +133,16 @@ class WildcardContainer: UIView, WildcardViewDelegate {
         card.frame.origin.y -= CARD_TOP_MARGIN*2
         card.facingBack = false
         
-        if self.loadedCards.count > 0 { self.loadedCards[0].panGestureRecognizer.isEnabled = true } // enable the  gesture recognizer for the top card
+        if self.loadedCards.count > 0 {
+            self.enableTopCard()
+        } // enable the  gesture recognizer for the top card
         self.cardCountDelegate?.updateCardCount(val: remainingCards) //Update count
         
+    }
+    
+    func enableTopCard() {
+        self.loadedCards[0].panGestureRecognizer.isEnabled = true
+        self.loadedCards[0].accessibilityLabel = "top card"
     }
     
 }

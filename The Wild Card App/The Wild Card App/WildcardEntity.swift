@@ -13,24 +13,30 @@ class WildcardEntity : Mappable {
     
     required init?(map: Map) {}
 
-    var id: Int64?
-    var name: String?
     var age: Int?
     var city : String?
+    var firstName: String?
+    var id: String?
+    var images : [String]?
     var profession : String?
+    var name: String?
+    var postCode: String?
     var isSmoker: Bool?
+    var totalImages: Int?
     var wishesChildren: Bool?
-    var profilePictureUrl : String?
     
     func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
         age <- map["age"]
         city <- map["city"]
-        profession <- map["profession"]
+        firstName <- map["firstname"]
+        id <- map["id"]
+        images <- map["images"]
+        profession <- map["job"]
+        name <- map["name"]
+        postCode <- map["postcode"]
         isSmoker <- map["smoker"]
-        wishesChildren <- map["wish_children"]
-        profilePictureUrl <- map["profile_picture_url"]
+        totalImages <- map["total_images"]
+        wishesChildren <- map["wish_for_children"]
     }
     
 }

@@ -34,7 +34,7 @@
 		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>mocky.io</key>
+			<key>devrecruitmentapi-affinitasplaygroundstaticbucket-129egsam02uuk.s3-website-eu-west-1.amazonaws.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

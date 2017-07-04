@@ -20,6 +20,8 @@
 		B7227C291F04F26A00B825F2 /* WildcardView_DraggingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1E1F04E09C00B825F2 /* WildcardView_DraggingProtocol.swift */; };
 		B7227C2A1F04F26D00B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */; };
 		B7227C2B1F04F26D00B825F2 /* WildcardView_ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7227C1B1F04DD4800B825F2 /* WildcardView_ViewSetupProtocol.swift */; };
+		B7227C2C1F05395A00B825F2 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C333441F024BB000038D4B /* LoadingManager.swift */; };
+		B7227C2D1F05395B00B825F2 /* LoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C333441F024BB000038D4B /* LoadingManager.swift */; };
 		B733166A1F0114510002A50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73316691F0114510002A50E /* AppDelegate.swift */; };
 		B73316711F0114510002A50E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73316701F0114510002A50E /* Assets.xcassets */; };
 		B73316741F0114510002A50E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73316721F0114510002A50E /* LaunchScreen.storyboard */; };
@@ -602,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7227C2C1F05395A00B825F2 /* LoadingManager.swift in Sources */,
 				B7227C241F04F26400B825F2 /* WildcardViewProtocols.swift in Sources */,
 				B73316B81F0119550002A50E /* WildcardsInteractor.swift in Sources */,
 				B73316E01F023E8E0002A50E /* FetchCommand.swift in Sources */,
@@ -628,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7227C2D1F05395B00B825F2 /* LoadingManager.swift in Sources */,
 				B7227C251F04F26400B825F2 /* WildcardViewProtocols.swift in Sources */,
 				B73316B91F0119550002A50E /* WildcardsInteractor.swift in Sources */,
 				B73316E11F023E8E0002A50E /* FetchCommand.swift in Sources */,

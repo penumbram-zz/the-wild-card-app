@@ -49,14 +49,6 @@ extension WildcardView {
 
 }
 
-/*
- weak var labelAge : UILabel!
- weak var labelCity : UILabel!
- weak var labelProfession : UILabel!
- weak var labelSmoking : UILabel!
- weak var labelChildren : UILabel!
-*/
-
 
 extension WildcardView { //Front View
     
@@ -104,6 +96,7 @@ extension WildcardView { //Front View
     
     func initProfilePicture() {
         let ivProfile = UIImageView(frame: CGRect(x: 0.0, y: 50.0, width: 90.0 ,height:90.0))
+        ivProfile.contentMode = .scaleAspectFill
         ivProfile.layer.cornerRadius = ivProfile.frame.width/2.0
         ivProfile.layer.masksToBounds = true
         

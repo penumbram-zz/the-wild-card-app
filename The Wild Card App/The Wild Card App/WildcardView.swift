@@ -61,6 +61,7 @@ class WildcardView: UIView, ViewSetupProtocol {
     init(frame: CGRect, entity: WildcardEntity) {
         ACTION_MARGIN = frame.size.width/2
         super.init(frame: frame)
+        self.accessibilityIdentifier = "Wildcard View"
         self.setupView() //setup views
         self.fillCard(item: entity) //fill the data
     }
@@ -74,7 +75,7 @@ class WildcardView: UIView, ViewSetupProtocol {
         self.labelProfession.text = "Profession: \(item.profession!)"
         
         
-        self.ivProfile.sd_setImage(with: URL(string: item.profilePictureUrl!), placeholderImage: UIImage(named:"profile_placeholder"), options: SDWebImageOptions.cacheMemoryOnly, completed: nil)
+        self.ivProfile.sd_setImage(with: URL(string: item.images![0]), placeholderImage: UIImage(named:"profile_placeholder"), options: SDWebImageOptions.cacheMemoryOnly, completed: nil)
     }
     
     func setupView() {

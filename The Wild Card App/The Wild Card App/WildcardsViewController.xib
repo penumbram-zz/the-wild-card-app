@@ -48,6 +48,9 @@
                 <constraint firstItem="hti-TK-hir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fpJ-x3-N38"/>
                 <constraint firstItem="hti-TK-hir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="zee-44-2bT"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="wildcards view controller view"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="33.5" y="59.5"/>
         </view>
     </objects>
