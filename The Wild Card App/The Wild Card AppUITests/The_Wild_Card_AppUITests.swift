@@ -9,28 +9,104 @@
 import XCTest
 
 class The_Wild_Card_AppUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testRightSwipe() {
+        let app = XCUIApplication()
+        let backlabel = self.backLabel(app)
+        let topCard = cardWithIdentifier("top card", app)
+        XCTAssertFalse(backlabel.exists)
+        topCard?.swipeRight()
+        XCTAssertTrue(backlabel.exists)
+        topCard?.swipeRight()
+        XCTAssertFalse(backlabel.exists)
+    }
+    func testRightSwipeExtensive() {
+        let app = XCUIApplication()
+        let backLabel = self.backLabel(app)
+        XCTAssertFalse(backLabel.exists)
+        for i in 1..<30 {
+            let topcard = cardWithIdentifier("top card", app)
+            XCTAssertTrue(topcard!.exists)
+            topcard?.swipeRight()
+            XCTAssertEqual(backLabel.exists, Bool((i % 2) as NSNumber))
+        }
+    }
+    func testLeftSwipe() {
+        let app = XCUIApplication()
+        
+        self.swipeOffAllCards(app)
+        XCTAssertFalse(self.finishedLabel(app).exists)
+    }
+ 
+    func testSwipeEmptyScreenExcessive() {
+        let app = XCUIApplication()
+        self.swipeOffAllCards(app)
+        let mainView = app.windows.children(matching: .any).matching(identifier: "wildcards view controller view").element
+        for i in 0..<10 {
+            ((i % 2) == 0) ? mainView.swipeLeft() : mainView.swipeRight() //would it cause any kind of crash?
+        }
+        XCTAssertFalse(self.finishedLabel(app).exists)
+    }
+ 
+    func testBackTurnedSwipeOff() {
+        let app = XCUIApplication()
+        while let card = cardWithIdentifier("top card", app) {
+            card.swipeRight()
+            XCTAssertTrue(self.backLabel(app).exists)
+            card.swipeLeft()
+            XCTAssertFalse(self.backLabel(app).exists)
+        }
+        XCTAssertFalse(self.finishedLabel(app).exists)
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testReusedCards() {
+        let app = XCUIApplication()
+        var card = cardWithIdentifier("top card", app)
+        card?.swipeRight()
+        card?.swipeLeft()
+        card = cardWithIdentifier("top card", app)
+        card?.swipeRight()
+        let reusedCard = cardWithIdentifier("bottom card", app)
+        let backLabel = reusedCard?.children(matching: .any).staticTexts[backText]
+        XCTAssertFalse(backLabel!.exists)
+        let topBackLabel = self.backLabel(app)
+        XCTAssertTrue(topBackLabel.exists)
+        print("yoyo")
+    }
+    
+    //MARK: Reused Helper Functions
+    
+    let backText = "Send First Message Here!"
+    
+    func cardWithIdentifier(_ identifier : String,_ app : XCUIApplication) -> XCUIElement? {
+        let query = app.windows.children(matching: .any).matching(identifier: "wildcards view controller view").children(matching: .any).matching(identifier: "wildcard container view").children(matching: .any).matching(identifier: identifier)
+        if query.count == 1 {
+            return query.element
+        } else {
+            return nil
+        }
+    }
+    
+    func backLabel(_ app : XCUIApplication) -> XCUIElement {
+        let lbl = app.staticTexts[backText]
+        return lbl
+    }
+    
+    func finishedLabel(_ app : XCUIApplication) -> XCUIElement {
+        let lbl = app.staticTexts["Cards Left: 0"]
+        return lbl
+    }
+    
+    func swipeOffAllCards(_ app : XCUIApplication) {
+        while let card = cardWithIdentifier("top card", app) {
+            card.swipeLeft()
+        }
     }
     
 }
