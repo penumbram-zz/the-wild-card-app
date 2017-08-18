@@ -21,12 +21,16 @@ class WildcardsPresenter: WildcardsPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
+    
     func viewLoaded() {
         LoadingManager.showLoading()
-        self.interactor?.fetchWildcards()
+        //self.interactor?.fetchWildcards()
+        var dummyList : [WildcardEntity] = []
+        while dummyList.count < 10 {
+            dummyList.append(dummyWildcardEntity())
+        }
+        self.interactor?.output?.wildcardsFetched(dummyList)
     }
-    
-    
 
 }
 
@@ -41,4 +45,23 @@ extension WildcardsPresenter: WildcardsInteractorOutputProtocol {
         self.view?.showNoUsersAlert()
         LoadingManager.hideLoading()
     }
+}
+
+extension WildcardsPresenter {
+    
+    func dummyWildcardEntity() -> WildcardEntity {
+        let entity = WildcardEntity(JSON: ["age": 27,
+                                           "city": "Istanbul",
+                                           "firstname": "Tolga",
+                                           "id": "113595f5-b58f-4c6a-800d-7b787cd2e79a",
+                                           "job": "iOS Developer",
+                                           "images" : ["https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/11990448_10153044355616811_6985420975763035287_n.jpg?oh=08e70de065ef5a52cce9998c13f6c708&oe=59C5CFA5"],
+                                           "name": "Tolga Caner",
+                                           "postcode" : "34456",
+                                           "smoker" : false,
+                                           "total_images" : 1,
+                                           "wish_for_children": false])
+        return entity!
+    }
+    
 }

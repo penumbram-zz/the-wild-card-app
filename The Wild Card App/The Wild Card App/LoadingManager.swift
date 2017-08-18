@@ -19,7 +19,6 @@ public class LoadingManager {
     }
     
     static func showLoading() {
-        
         SVProgressHUD.show()
     }
     

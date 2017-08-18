@@ -22,6 +22,10 @@ class WildcardsViewController: UIViewController {
         presenter?.viewLoaded()
     }
     
+    @IBAction func btnFilterAction(_ sender: UIButton) {
+        let filterRouter = FilterRouter.createModule()
+        self.present(filterRouter, animated: true, completion: nil)
+    }
 }
 
 

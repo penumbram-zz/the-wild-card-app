@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="597"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mcm-1X-xVc">
-                            <rect key="frame" x="20" y="25" width="335" height="21"/>
+                            <rect key="frame" x="306" y="25" width="0.0" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="MmP-o7-QXh"/>
                             </constraints>
@@ -32,12 +32,24 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-hr-Hpe">
+                            <rect key="frame" x="324" y="16" width="35" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="FWe-G8-w6G"/>
+                                <constraint firstAttribute="width" constant="35" id="gYv-w2-etP"/>
+                            </constraints>
+                            <state key="normal" title="Filter"/>
+                            <connections>
+                                <action selector="btnFilterAction:" destination="-1" eventType="touchUpInside" id="mNg-tP-5TH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Mcm-1X-xVc" firstAttribute="top" secondItem="hti-TK-hir" secondAttribute="top" constant="25" id="5I3-s5-d2z"/>
-                        <constraint firstAttribute="trailing" secondItem="Mcm-1X-xVc" secondAttribute="trailing" constant="20" id="UfQ-0g-Jz3"/>
-                        <constraint firstItem="Mcm-1X-xVc" firstAttribute="leading" secondItem="hti-TK-hir" secondAttribute="leading" constant="20" id="rMr-pC-c1w"/>
+                        <constraint firstItem="dJi-hr-Hpe" firstAttribute="leading" secondItem="Mcm-1X-xVc" secondAttribute="trailing" constant="18" id="BpO-on-6fr"/>
+                        <constraint firstItem="dJi-hr-Hpe" firstAttribute="top" secondItem="hti-TK-hir" secondAttribute="top" constant="16" id="s0d-2x-Rjb"/>
+                        <constraint firstAttribute="trailing" secondItem="dJi-hr-Hpe" secondAttribute="trailing" constant="16" id="sUX-DZ-6JX"/>
                     </constraints>
                 </view>
             </subviews>
